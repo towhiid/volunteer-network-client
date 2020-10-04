@@ -34,11 +34,9 @@ const Login = () => {
           });
     }
     return (
-        <div className ="auth" onClick = {handleGoogleSignIn}>
-                <img src="https://i.ibb.co/nRx7jF4/google.png" alt="" width = "30"/>&nbsp;&nbsp;
-                <div>
-                    <h6>Continue With Google</h6>
-                </div>
+        <div  onClick = {handleGoogleSignIn}>
+                <img src="https://i.ibb.co/nRx7jF4/google.png" alt=""  width = "30"/>&nbsp;&nbsp;
+                <button><h6>Continue With Google</h6></button>
         </div>
     );
 };
