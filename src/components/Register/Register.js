@@ -3,7 +3,8 @@ import { useForm } from 'react-hook-form';
 import { UserContext } from '../../App';
 import './Register.css';
 
-const Register = () => {
+const Register = (props) => {
+  
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, watch, errors } = useForm();
   const onSubmit = data => console.log(data);
@@ -23,7 +24,7 @@ const Register = () => {
       {errors.date && <span className = "error">Date is required</span>}
 
       <input name="description" placeholder= "Description" ref={register()} />
-      <input name="name" ref={register({ required: true })} />
+      <input name="name" defaultValue = "" ref={register({ required: true })} />
       {errors.name && <span className = "error">This field is required</span>}
       
       <input type="submit" />
