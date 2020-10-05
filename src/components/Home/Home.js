@@ -90,6 +90,18 @@ const tasks = [
 ]
 
 const Home = () => {
+    const handleAddEvent = () => {
+        const task = [...tasks]
+        fetch('http://localhost:5000//addEvent', {
+            method: 'POST',
+            headers: {
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify({task})
+        })
+        .then(res => res.json())
+        .then(data => {console.log(data)})
+    }
     return (
         <div>
              <h3 className="text-center">I GROW BY HELPING PEOPLE IN NEED.</h3>
@@ -98,9 +110,9 @@ const Home = () => {
             <FormControl className = 'search' type="text" placeholder="Search"/>
             </Form>
         </nav>
-        <div className="row">
+        <div className="row" onClick = {handleAddEvent}>
             {
-                tasks.map(task => <Task task={task}></Task>)
+                tasks.map(task => <Task key = {task.name} task={task}></Task>)
             }
         </div>
         </div>
