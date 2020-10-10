@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { UserContext } from '../../App';
 import './Register.css';
 
 const Register = () => {
-  const [startDate, setStartDate] = useState(new Date());
+ 
+    const [startDate, setStartDate] = useState(new Date());
   
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     const { register, handleSubmit, watch, errors } = useForm();
@@ -26,7 +27,7 @@ const Register = () => {
       <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
       {errors.date && <span className = "error">Date is required</span>}
 
-      <input name="description" placeholder= "Description" ref={register()} />
+      <input name="description"  placeholder= "Description" ref={register()} />
       <input name="name" ref={register({ required: true })} />
       {errors.name && <span className = "error">This field is required</span>}
       

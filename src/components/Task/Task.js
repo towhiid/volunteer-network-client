@@ -1,14 +1,11 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
-import  '../../Image/images/babySit.png';
+import { Link} from 'react-router-dom';
 
 const Task = ({task}) => {
-    
-    const {id} = useParams();
     return (
         <div className = "col-md-3">
-            <Link to = {`/register/${id}`}>
-            <img style = {{height:'300px'}} src={require(`../../Image/images/${task.pic}`)} alt=""/>
+            <Link to = {`/register/${task.name}`}>
+            <img style = {{height:'300px'}} src={task.pic} alt=""/>
             <h3 className = "text-primary">{task.name}</h3></Link>
         </div>
     );
