@@ -6,7 +6,7 @@ const Event = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     useEffect(() => {
-        fetch('http://localhost:5000/tasks?name='+users.name)
+        fetch('https://mysterious-garden-69342.herokuapp.com/tasks?name='+users.name)
         .then(res => res.json())
         .then(data => setUsers(data));
     }, [])

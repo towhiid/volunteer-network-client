@@ -8,7 +8,7 @@ import event from '../FakeData/FakeData';
 
 const Register = () => {
   const handleAddEvent = () => {
-    fetch('http://localhost:5000/addEvent', {
+    fetch('https://mysterious-garden-69342.herokuapp.com/addEvent', {
       method: 'POST',
       headers: {
         'Content-Type' : 'application/json'
