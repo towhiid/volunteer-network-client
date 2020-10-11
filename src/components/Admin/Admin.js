@@ -1,18 +1,19 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { useContext } from 'react';
+import { useEffect } from 'react';
 import { UserContext } from '../../App';
 
-const Event = () => {
+const Admin = () => {
     const [users, setUsers] = useState([])
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
 
     useEffect(() => {
-        fetch('http://localhost:5000/tasks?name='+users.name)
+        fetch('http://localhost:5000/tasks')
         .then(res => res.json())
         .then(data => setUsers(data));
     }, [])
     return (
         <div>
-            <h1>Hello {loggedInUser.displayName}</h1>
             {
                 users.map(user => <li> Name: {user.name},&nbsp; Email: {loggedInUser.email}</li>)
             }
@@ -20,4 +21,4 @@ const Event = () => {
     );
 };
 
-export default Event;
+export default Admin;

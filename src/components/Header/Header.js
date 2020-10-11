@@ -13,7 +13,7 @@ const Header = () => {
       <Link style = {{color: '#000000'}} className = "p-5" href="#">Donation</Link>
       <Link style = {{color: '#000000'}} className = "p-5" href="#">Events</Link>
       <Link className = "p-5" to = "/login"><Button className = "btn btn-primary">Register</Button></Link>
-      <Link className = "p-5"><Button className = "btn btn-warning">Admin</Button></Link>
+      <Link className = "p-5" to = "/admin"><Button className = "btn btn-warning">Admin</Button></Link>
     </Nav>
     
   </Navbar></>

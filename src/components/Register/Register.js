@@ -4,9 +4,18 @@ import { useForm } from 'react-hook-form';
 import { Link} from 'react-router-dom';
 import { UserContext } from '../../App';
 import './Register.css';
+import event from '../FakeData/FakeData';
 
 const Register = () => {
- 
+  const handleAddEvent = () => {
+    fetch('http://localhost:5000/addEvent', {
+      method: 'POST',
+      headers: {
+        'Content-Type' : 'application/json'
+      },
+      body : JSON.stringify(event)
+    })
+  }
     const [startDate, setStartDate] = useState(new Date());
   
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
@@ -34,6 +43,7 @@ const Register = () => {
       <Link to ="/event">
       <input className = "btn btn-warning" type="submit" />
       </Link>
+      <p onClick = {handleAddEvent}></p>
     </form>
   );
 };

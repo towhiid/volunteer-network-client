@@ -13,6 +13,7 @@ import NotFound from './components/NotFound/NotFound';
 import Register from './components/Register/Register';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Event from './components/Event/Event';
+import Admin from './components/Admin/Admin';
 
 export const UserContext = createContext();
 
@@ -32,6 +33,9 @@ function App() {
             </Route>
             <PrivateRoute path="/register/:name">
               <Register />
+            </PrivateRoute>
+            <PrivateRoute path="/admin">
+              <Admin></Admin>
             </PrivateRoute>
             <Route path ="/event">
               <Event />

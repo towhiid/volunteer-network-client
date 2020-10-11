@@ -1,22 +1,18 @@
 import React from 'react';
 import { Form, FormControl } from 'react-bootstrap';
 import Task from '../Task/Task';
-import tasks from '../FakeData/FakeData';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 
 const Home = () => {
-    const handleAddEvent = () => {
-        const task = [...tasks]
-        fetch('http://localhost:5000/addEvent', {
-            method: 'POST',
-            headers: {
-                'Content-Type' : 'application/json'
-            },
-            body: JSON.stringify({task})
-        })
+    const [event, setEvent] = useState([]);
+
+    useEffect(() =>{
+        fetch('http://localhost:5000/tasks')
         .then(res => res.json())
-        .then(data => {console.log(data)})
-    }
+        .then(data => setEvent(data))
+    }, [])
     return (
         <div>
              <h3 className="text-center">I GROW BY HELPING PEOPLE IN NEED.</h3>
@@ -25,9 +21,9 @@ const Home = () => {
             <FormControl className = 'search' type="text" placeholder="Search"/>
             </Form>
         </nav>
-        <div className="row" onClick = {handleAddEvent}>
+        <div className="row">
             {
-                tasks.map(task => <Task key = {task.name} task={task}></Task>)
+                event.map(task => <Task key = {task.name} task={task}></Task>)
             }
         </div>
         </div>
